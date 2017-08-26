@@ -4,8 +4,8 @@ import './index.css';
 class BaseLayout extends Component {
   render() {
     return (
-      <div className="BaseLayout">
-        BaseLayout Page
+      <div>
+        {this.props.children}
       </div>
     );
   }
