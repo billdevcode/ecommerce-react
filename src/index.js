@@ -8,6 +8,7 @@ import NavBar from './components/NavBar';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Home from './components/Home';
+import ShowProduct from './components/ShowProduct';
 import './globalStyles.css';
 
 import registerServiceWorker from './registerServiceWorker';
@@ -20,6 +21,7 @@ ReactDOM.render(
           <Route path="/contact" component={Contact}/>
           <Route path="/about" component={About}/>
           <Route path="/home" component={Home}/>
+          <Route exact path="/dresses/:id" component={ShowProduct}/>
           <Route path="/" component={App}/>
         </Switch>
       </NavBar>

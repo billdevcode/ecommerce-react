@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PRODUCTS from '../../assets/data/products.js';
 import './index.css';
 import map from 'lodash/map';
+import { Link } from 'react-router-dom';
 
 class ProductList extends Component {
   render() {
@@ -12,7 +13,7 @@ class ProductList extends Component {
        </div>
        <div className="col row">
          {map(PRODUCTS, (product)=> (
-           <div key={product.id} className="col s12 col m4 col l3">
+           <Link to={`/dresses/${product.id}`}><div key={product.id} className="col s12 col m4 col l3">
              <div className="product-image">
                <img alt={product.name} src={product.img} />
              </div>
@@ -23,7 +24,7 @@ class ProductList extends Component {
                  <h5 id="product-price">${product.price}</h5>
                </div>
              </div>
-           </div>
+           </div></Link>
          ))}
        </div>
      </div>
