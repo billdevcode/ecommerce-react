@@ -1,0 +1,20 @@
+.header-search {
+  -moz-border-width: 200px;
+  -webkit-border-width: 200px;
+  -webkit-transition: border-color ease-out 100ms;
+  background-color: #ffffff;
+  border-radius: 0;
+  border: 1px solid #bfbfbf;
+  color: #777777;
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-weight: normal;
+  height: 36px;
+  height: 3rem;
+  line-height: 18px;
+  line-height: 36px;
+  line-height: 3rem;
+  padding: 4px 12px 4px 26px;
+  transition: border-color ease-out 100ms;
+  width: 200px;
+}
