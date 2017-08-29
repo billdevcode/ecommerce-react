@@ -2,25 +2,21 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
 import './index.css';
 
-class NavBar extends Component {
-  render() {
-    return (
-      <div>
-        <nav className="navbar">
-          <ul className="nav">
-            <NavLink activeClassName="selected" className="nav-link" exact to="/">Home</NavLink>
-            <NavLink activeClassName="selected" className="nav-link" to="/about">About</NavLink>
-            <NavLink activeClassName="selected" className="nav-link" to="/contact">Contact</NavLink>
-          </ul>
-        </nav>
-
-        <div className="content">
-          {this.props.children}
-        </div>
-
+const NavBar = (props) => (
+  <div>
+    <nav className="black">
+      <div className="nav-wrapper">
+        <NavLink activeClassName="brand-logo" exact to="/">Home</NavLink>
+        <ul id="nav-mobile" className="right">
+          <li><NavLink activeClassName="selected" to="/about">About</NavLink></li>
+          <li><NavLink activeClassName="selected" to="/contact">Contact</NavLink></li>
+        </ul>
       </div>
-    );
-  }
-}
+   </nav>
+   {props.children}
+ </div>
+
+
+);
 
 export default NavBar;
