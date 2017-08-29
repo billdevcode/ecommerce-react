@@ -7,12 +7,12 @@ class ProductList extends Component {
   render() {
    return (
      <div className="row">
-       <div className="col-sm-12 text-center">
+       <div className="col center">
          <h4>All Items</h4>
        </div>
-       <div className="col-sm-12 row">
+       <div className="col row">
          {map(PRODUCTS, (product)=> (
-           <div key={product.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+           <div key={product.id} className="col s12 col m4 col l3">
              <div className="product-image">
                <img alt={product.name} src={product.img} />
              </div>
