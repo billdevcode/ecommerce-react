@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom'
+import { BrowserRouter, Route, Switch} from 'react-router-dom'
 import App from './components/App';
 import BaseLayout from './components/BaseLayout';
 import About from './components/About';
 import NavBar from './components/NavBar';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
+import Home from './components/Home';
+import './globalStyles.css';
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -16,9 +19,11 @@ ReactDOM.render(
         <Switch>
           <Route path="/contact" component={Contact}/>
           <Route path="/about" component={About}/>
+          <Route path="/home" component={Home}/>
           <Route path="/" component={App}/>
         </Switch>
       </NavBar>
+      <Footer />
     </BaseLayout>
   </BrowserRouter>
   ,
