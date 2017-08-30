@@ -22,7 +22,7 @@ class ShowProduct extends Component {
             <p>{product.description}</p>
             <p>Size: {product.size}</p>
             <p>Price: {product.price}</p>
-            <button type="button" className="button cart-button" >Add to cart</button>
+            <button type="button" className="button cart-button">Add to cart</button>
           </div>
         </div>
       </div>
