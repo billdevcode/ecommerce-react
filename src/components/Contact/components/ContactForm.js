@@ -20,34 +20,36 @@ class ContactForm extends Component {
 
   render() {
     return (
-      <div className="contact-form">
-        {/* Name field */}
-        <Field
-          placeHolder="Name"
-          onChange={(event) => this.updateField('name', event.target.value)}
-          value={this.state.name}
-        />
+      <div className="contact-form row">
+        <div className="col s12 m8 offset-m2">
+          {/* Name field */}
+          <Field
+            placeHolder="Name"
+            onChange={(event) => this.updateField('name', event.target.value)}
+            value={this.state.name}
+          />
 
-        {/* Email field */}
-        <Field
-          placeHolder="Email"
-          onChange={(event) => this.updateField('email', event.target.value)}
-          value={this.state.email}
-        />
+          {/* Email field */}
+          <Field
+            placeHolder="Email"
+            onChange={(event) => this.updateField('email', event.target.value)}
+            value={this.state.email}
+          />
 
-        {/* Message textarea */}
-        <TextArea
-          placeHolder="Message"
-          onChange={(event) => this.updateField('message', event.target.value)}
-          value={this.state.message}
-          textarea={true}
-        />
+          {/* Message textarea */}
+          <TextArea
+            placeHolder="Message"
+            onChange={(event) => this.updateField('message', event.target.value)}
+            value={this.state.message}
+            textarea={true}
+          />
 
-        {/* Submit button */}
-        <Button
-          email="sandra.adamshallie@gmail.com"
-          formValues={this.state}
-        />
+          {/* Submit button */}
+          <Button
+            email="sandra.adamshallie@gmail.com"
+            formValues={this.state}
+          />
+        </div>
       </div>
     );
   }

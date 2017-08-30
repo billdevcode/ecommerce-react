@@ -22,7 +22,7 @@ class Button extends Component {
   render() {
     const href = `mailto:${this.props.email}?subject=You got mail from ${this.props.formValues.name}&body=${this.props.formValues.message} from ${this.props.formValues.email}`
     return (
-      <a href={href} className="button"><button>Get in Touch</button></a>
+      <a href={href} className="button"><button className="submit-button">Get in Touch</button></a>
     );
   }
 }
