@@ -7,7 +7,6 @@ import About from './components/About';
 import NavBar from './components/NavBar';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import Home from './components/Home';
 import ShowProduct from './components/ShowProduct';
 import './globalStyles.css';
 
@@ -20,7 +19,6 @@ ReactDOM.render(
         <Switch>
           <Route path="/contact" component={Contact}/>
           <Route path="/about" component={About}/>
-          <Route path="/home" component={Home}/>
           <Route exact path="/products/:type/:id" component={ShowProduct}/>
           <Route path="/" component={App}/>
         </Switch>
