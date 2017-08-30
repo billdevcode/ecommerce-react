@@ -1,8 +1,23 @@
 import React, { Component } from 'react';
+import Field from '../Contact/components/Field.js';
 import { NavLink } from 'react-router-dom'
 import './index.css';
 
 class Footer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      email: '',
+      message: '',
+    };
+    this.updateField = this.updateField.bind(this);
+  }
+
+  updateField(field, value) {
+    this.setState({ [field]: value });
+  }
+  
   render() {
     return (
       <footer className="page-footer black">
@@ -18,15 +33,20 @@ class Footer extends Component {
               <h5>Stay Updated</h5>
 
               <form action="#" method="post" className="validate" target="_blank" novalidate>
-
                 <div className="col s12 input-field">
-                  <label>Name</label>
-                  <input type="text" value="" />
+                  <Field
+                    placeHolder="Name"
+                    onChange={(event) => this.updateField('name', event.target.value)}
+                    value={this.state.name}
+                  />
                 </div>
 
                 <div className="col s12 input-field">
-                  <label>Email Address</label>
-                  <input type="email" value="" />
+                  <Field
+                    placeHolder="Email"
+                    onChange={(event) => this.updateField('email', event.target.value)}
+                    value={this.state.email}
+                  />
                 </div>
 
                 <div className="clear">
