@@ -1,0 +1,102 @@
+footer h1 {
+  color: #e9e9e9;
+  font-size: 1.5rem;
+  margin: 0 0 1.2rem 0;
+  padding-top: .5rem;
+}
+
+footer input {
+  width: 60%;
+}
+
+footer button {
+  margin: 1rem 0;
+}
+
+footer .container {
+  margin-top: 3rem;
+  text-align: left;
+}
+
+@media only screen and (max-width: 601px) {
+  footer .container {
+    text-align: center;
+  }
+}
+
+footer li {
+  padding: .2rem;
+  font-size: 14px;
+  color: #e9e9e9;
+}
+
+footer input[type=text] {
+  margin : 0 !important;
+}
+
+footer input[type=email] {
+  margin-bottom: 10px;
+}
+
+
+.footer-copyright {
+  font-size: 14px;
+  color: #e9e9e9
+}
+
+.footer-copyright a{
+  color: #e9e9e9
+}
+
+footer a {
+  transition: color .5s;
+}
+
+footer a:hover {
+  color: #FFFF;
+}
+
+footer input {
+  color: #ffffff;
+}
+
+.no-title {
+  margin-top: 29px;
+}
+
+.Footer {
+  padding-bottom: 50px;
+}
+
+.Footer h1 {
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.Footer hr {
+  color: #ffffff;
+}
+
+.footer-content {
+  margin-bottom: 50px;
+}
+
+.Button {
+  -webkit-tap-highlight-color: #FFF !important;
+  background: transparent;
+  border-radius: 0;
+  border: 1px solid #FFF;
+  color: white;
+  font-size: 12px;
+  height: 30px;
+  letter-spacing: 3px;
+  line-height: 1em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background-color 0.4s;
+  width: 60%;
+}
+
+.footer-bottom {
+  padding: 30px;
+}
