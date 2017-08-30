@@ -6,20 +6,11 @@ import './index.css';
 
 class App extends Component {
 
-  constructor() {
-    super();
-
-    this.state = {
-    }
-
-  }
-
   render() {
    return (
       <div className="App">
         <Header />
         <div className="row">
-
           <div className="col-sm-12">
             <ProductList />
           </div>

@@ -17,6 +17,10 @@ h1 {
   margin-bottom: 1.5em;
 }
 
+.category-picker {
+  border: 1px solid #eeeeee;
+}
+
 #product-list-title {
   border-bottom: 1px solid lightgrey;
   padding-bottom: 1em;
