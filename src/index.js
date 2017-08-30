@@ -21,7 +21,7 @@ ReactDOM.render(
           <Route path="/contact" component={Contact}/>
           <Route path="/about" component={About}/>
           <Route path="/home" component={Home}/>
-          <Route exact path="/dresses/:id" component={ShowProduct}/>
+          <Route exact path="/products/:type/:id" component={ShowProduct}/>
           <Route path="/" component={App}/>
         </Switch>
       </NavBar>

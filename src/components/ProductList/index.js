@@ -9,7 +9,6 @@ import '../../globalStyles.css'
 // Internals
 import './index.css';
 
-
 class ProductList extends Component {
   constructor(props) {
     super(props);
@@ -19,6 +18,9 @@ class ProductList extends Component {
       small: false,
       medium: false,
       large: false,
+      dress: false,
+      top: false,
+      bottom: false,
     };
   }
 
@@ -29,27 +31,57 @@ class ProductList extends Component {
     this.setState({ [event.target.value]: toggledValue });
   }
 
+  filterByCategory = (event) => {
+    // event.target.value will be either 'small', 'medium', or 'large'
+    // Toggle this.state.dress, top, and bottom to either true or false.
+    const toggledValue = !this.state[event.target.value];
+    this.setState({ [event.target.value]: toggledValue });
+  }
+
   render() {
-    const { small, medium, large } = this.state;
+    const { small, medium, large, dress, top, bottom } = this.state;
     let products = PRODUCTS;
 
     // Filter products if filters have been selected by user.
-    const hasSelectedFilter = small || medium || large;
+    const hasSelectedFilter = small || medium || large || dress || top || bottom;
     if (hasSelectedFilter) {
       products = filter(PRODUCTS, (product) => {
-        // If user clicks on small checkbox, add the small products.
         if (small && product.size === 'small') { return product; }
-        // If user clicks on medium checkbox, add the medium products.
         if (medium && product.size === 'medium') { return product; }
-        // If user clicks on large checkbox, add the large products.
         if (large && product.size === 'large') { return product; }
+        if (dress && product.type === 'dress') { return product; }
+        if (top && product.type === 'top') { return product; }
+        if (bottom && product.type === 'bottom') { return product; }
       })
     }
 
     return (
       <div className="row">
-        <div className="col s8 offset-s2 m4 offset-m4 center">
-          <h4 id="product-list-title">All Dresses</h4>
+        <div className="col s8 offset-s2 m4 offset-m4 center category-picker">
+          <p>Pick your category</p>
+          <input
+            onClick={this.filterByCategory}
+            type="checkbox"
+            id="category_dresses"
+            value="dress"
+          />
+          <label htmlFor="category_dresses">Dresses</label>
+
+          <input
+            onClick={this.filterByCategory}
+            type="checkbox"
+            id="category_tops"
+            value="top"
+          />
+          <label htmlFor="category_tops">Tops</label>
+
+          <input
+            onClick={this.filterByCategory}
+            type="checkbox"
+            id="category_bottoms"
+            value="bottom"
+          />
+          <label htmlFor="category_bottoms">Bottoms</label>
         </div>
 
         <div className="col s8 offset-s2 m4 offset-m4 center size-picker">
@@ -77,11 +109,11 @@ class ProductList extends Component {
           <label htmlFor="size_large">Large</label>
         </div>
 
-        <div className="col row product-items">
+        <div className="col row product-item">
           {map(products, (product)=> (
             <Link
               key={product.id}
-              to={`/dresses/${product.id}`}
+              to={`/products/${product.type}/${product.id}`}
             >
               <div className="col s12 col m4 col l3">
                 <div className="product-image">
