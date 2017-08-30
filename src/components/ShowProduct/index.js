@@ -10,7 +10,7 @@ class ShowProduct extends Component {
     return (
       <div className="row center product-show">
         <div className="col s12 m4 offset-m2">
-          <img className="product-image" src={product.img} alt="product" />
+          <img className="product-show-image" src={product.img} alt="product" />
         </div>
 
         <div className="col s12 m6">

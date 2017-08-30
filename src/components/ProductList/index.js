@@ -20,7 +20,7 @@ class ProductList extends Component {
           <input type="checkbox" id="size_large"/><label for="size_large">Large</label>
         </div>
 
-       <div className="col row">
+       <div className="col row product-item">
          {map(PRODUCTS, (product)=> (
            <Link to={`/dresses/${product.id}`}>
              <div key={product.id} className="col s12 col m4 col l3">
