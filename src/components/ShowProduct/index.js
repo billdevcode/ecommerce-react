@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
+import Product from './components/Product';
 import PRODUCTS from '../../assets/data/products.js';
-import map from 'lodash/map';
 
 class ShowProduct extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      itemTitle: "",
-      itemImage: "",
-    }
-  }
+  render () {
 
-  componentDidMount() {
-    const { id } = this.props.match.params;
-    console.log("This is the id: ", id)
-  }
+    let shownProduct = PRODUCTS.filter((product) => (
+      product.id === this.props.match.params)
+    )
 
-  render() {
     return (
-      <p>Hey</p>
+       <Product key={product.id} product={shownProduct} />
+    )
+
+  }
+}
+
+    return (
+      <div>Hello</div>
     )
   }
+
 }
 
 export default ShowProduct;
