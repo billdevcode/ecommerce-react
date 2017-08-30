@@ -1,0 +1,30 @@
+.product-show {
+  margin-top: 2em;
+}
+
+.product-image {
+  border: 1px solid lightgrey;
+}
+
+.cart-button {
+  -webkit-tap-highlight-color: #FFF !important;
+  background: transparent;
+  border: 1px solid #000;
+  color: #000;
+  font-size: 12px;
+  height: 30px;
+  letter-spacing: 3px;
+  line-height: 1em;
+  margin-top: 2em;
+  padding-top: 4px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background-color 0.4s;
+  width: 35%;
+}
+
+.cart-button:hover {
+  border: 2px solid #000;
+  -webkit-transition: border 0.1s, -webkit-transform 0.1s;
+  transition: border 0.1s, -webkit-transform 0.1s;
+}
