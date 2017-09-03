@@ -13,25 +13,20 @@ class ProductList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      small: { items: filter(PRODUCTS, ["size", "small"]), enabled: false },
-      medium: { items: filter(PRODUCTS, ["size", "medium"]), enabled: false },
-      large: { items: filter(PRODUCTS, ["size", "large"]), enabled: false },
-      dress: { items: filter(PRODUCTS, ["type", "dress"]), enabled: false },
-      top: { items: filter(PRODUCTS, ["type", "top"]), enabled: false },
-      bottom: { items: filter(PRODUCTS, ["type", "bottom"]), enabled: false },
+      small: false,
+      medium: false,
+      large: false,
+      dress: false,
+      top: false,
+      bottom: false,
     };
   }
 
   filterItems = (event) => {
     // event.target.value will be either 'small', 'medium', or 'large'
     // Toggle this.state.small, medium, and large to either true or false.
-    const category = this.state[event.target.value];
-    const toggledValue = !category.enabled;
-    // Destructuring
-    this.setState({ [event.target.value]: {
-      ...category,
-      enabled: toggledValue,
-    }});
+    const toggledValue = !this.state[event.target.value];
+    this.setState({ [event.target.value]: toggledValue });
   }
 
   render() {
@@ -39,38 +34,38 @@ class ProductList extends Component {
     let products = PRODUCTS;
 
     // Filter products if filters have been selected by user.
-    const hasSelectedFilter = small.enabled || medium.enabled || large.enabled || dress.enabled || top.enabled || bottom.enabled;
+    const hasSelectedFilter = small || medium || large || dress || top || bottom;
     if (hasSelectedFilter) {
-      products = [];
-      if (small.enabled) {
-        products = products.concat(small.items)
+      if (small) {
+        products = filter(products, ["size", "small"])
       }
-      if (medium.enabled) {
-        products = products.concat(medium.items)
+      if (medium) {
+        products = filter(products, ["size", "medium"])
       }
-      if (large.enabled) {
-        products = products.concat(large.items)
+      if (large) {
+        products = filter(products, ["size", "large"])
       }
-      if (dress.enabled) {
-        products = products.concat(dress.items)
+      if (dress) {
+        products = filter(products, ["type", "dress"])
       }
-      if (top.enabled) {
-        products = products.concat(top.items)
+      if (top) {
+        products = filter(products, ["type", "top"])
       }
-      if (bottom.enabled) {
-        products = products.concat(bottom.items)
+      if (bottom) {
+        products = filter(products, ["type", "bottom"])
       }
     }
 
     return (
       <div className="row">
         <div className="col s8 offset-s2 m4 offset-m4 center category-picker">
-          <p>Pick your category</p>
+          <p>Pick one category</p>
           <input
             onClick={this.filterItems}
             type="checkbox"
             id="category_dresses"
             value="dress"
+            disabled={top || bottom}
           />
           <label htmlFor="category_dresses">Dresses</label>
 
@@ -79,6 +74,7 @@ class ProductList extends Component {
             type="checkbox"
             id="category_tops"
             value="top"
+            disabled={dress || bottom}
           />
           <label htmlFor="category_tops">Tops</label>
 
@@ -87,17 +83,19 @@ class ProductList extends Component {
             type="checkbox"
             id="category_bottoms"
             value="bottom"
+            disabled={top || dress}
           />
           <label htmlFor="category_bottoms">Bottoms</label>
         </div>
 
         <div className="col s8 offset-s2 m4 offset-m4 center size-picker">
-          <p>Pick your size</p>
+          <p>Pick one size</p>
           <input
             onClick={this.filterItems}
             type="checkbox"
             id="size_small"
             value="small"
+            disabled={medium || large}
           />
           <label htmlFor="size_small">Small</label>
           <input
@@ -105,6 +103,7 @@ class ProductList extends Component {
             type="checkbox"
             id="size_medium"
             value="medium"
+            disabled={small || large}
           />
           <label htmlFor="size_medium">Medium</label>
           <input
@@ -112,6 +111,7 @@ class ProductList extends Component {
             type="checkbox"
             id="size_large"
             value="large"
+            disabled={small || medium}
           />
           <label htmlFor="size_large">Large</label>
         </div>
