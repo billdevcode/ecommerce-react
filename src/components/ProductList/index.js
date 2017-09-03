@@ -13,22 +13,25 @@ class ProductList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: [],
-      productsInCart: [],
-      small: false,
-      medium: false,
-      large: false,
-      dress: false,
-      top: false,
-      bottom: false,
+      small: { items: filter(PRODUCTS, ["size", "small"]), enabled: false },
+      medium: { items: filter(PRODUCTS, ["size", "medium"]), enabled: false },
+      large: { items: filter(PRODUCTS, ["size", "large"]), enabled: false },
+      dress: { items: filter(PRODUCTS, ["type", "dress"]), enabled: false },
+      top: { items: filter(PRODUCTS, ["type", "top"]), enabled: false },
+      bottom: { items: filter(PRODUCTS, ["type", "bottom"]), enabled: false },
     };
   }
 
   filterItems = (event) => {
     // event.target.value will be either 'small', 'medium', or 'large'
     // Toggle this.state.small, medium, and large to either true or false.
-    const toggledValue = !this.state[event.target.value];
-    this.setState({ [event.target.value]: toggledValue });
+    const category = this.state[event.target.value];
+    const toggledValue = !category.enabled;
+    // Destructuring
+    this.setState({ [event.target.value]: {
+      ...category,
+      enabled: toggledValue,
+    }});
   }
 
   render() {
@@ -36,16 +39,27 @@ class ProductList extends Component {
     let products = PRODUCTS;
 
     // Filter products if filters have been selected by user.
-    const hasSelectedFilter = small || medium || large || dress || top || bottom;
+    const hasSelectedFilter = small.enabled || medium.enabled || large.enabled || dress.enabled || top.enabled || bottom.enabled;
     if (hasSelectedFilter) {
-      products = filter(PRODUCTS, (product) => {
-        if (small && product.size === 'small') { return product; }
-        if (medium && product.size === 'medium') { return product; }
-        if (large && product.size === 'large') { return product; }
-        if (dress && product.type === 'dress') { return product; }
-        if (top && product.type === 'top') { return product; }
-        if (bottom && product.type === 'bottom') { return product; }
-      })
+      products = [];
+      if (small.enabled) {
+        products = products.concat(small.items)
+      }
+      if (medium.enabled) {
+        products = products.concat(medium.items)
+      }
+      if (large.enabled) {
+        products = products.concat(large.items)
+      }
+      if (dress.enabled) {
+        products = products.concat(dress.items)
+      }
+      if (top.enabled) {
+        products = products.concat(top.items)
+      }
+      if (bottom.enabled) {
+        products = products.concat(bottom.items)
+      }
     }
 
     return (
