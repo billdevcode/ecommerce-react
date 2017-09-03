@@ -24,16 +24,9 @@ class ProductList extends Component {
     };
   }
 
-  filterBySize = (event) => {
+  filterItems = (event) => {
     // event.target.value will be either 'small', 'medium', or 'large'
     // Toggle this.state.small, medium, and large to either true or false.
-    const toggledValue = !this.state[event.target.value];
-    this.setState({ [event.target.value]: toggledValue });
-  }
-
-  filterByCategory = (event) => {
-    // event.target.value will be either 'small', 'medium', or 'large'
-    // Toggle this.state.dress, top, and bottom to either true or false.
     const toggledValue = !this.state[event.target.value];
     this.setState({ [event.target.value]: toggledValue });
   }
@@ -60,7 +53,7 @@ class ProductList extends Component {
         <div className="col s8 offset-s2 m4 offset-m4 center category-picker">
           <p>Pick your category</p>
           <input
-            onClick={this.filterByCategory}
+            onClick={this.filterItems}
             type="checkbox"
             id="category_dresses"
             value="dress"
@@ -68,7 +61,7 @@ class ProductList extends Component {
           <label htmlFor="category_dresses">Dresses</label>
 
           <input
-            onClick={this.filterByCategory}
+            onClick={this.filterItems}
             type="checkbox"
             id="category_tops"
             value="top"
@@ -76,7 +69,7 @@ class ProductList extends Component {
           <label htmlFor="category_tops">Tops</label>
 
           <input
-            onClick={this.filterByCategory}
+            onClick={this.filterItems}
             type="checkbox"
             id="category_bottoms"
             value="bottom"
@@ -87,21 +80,21 @@ class ProductList extends Component {
         <div className="col s8 offset-s2 m4 offset-m4 center size-picker">
           <p>Pick your size</p>
           <input
-            onClick={this.filterBySize}
+            onClick={this.filterItems}
             type="checkbox"
             id="size_small"
             value="small"
           />
           <label htmlFor="size_small">Small</label>
           <input
-            onClick={this.filterBySize}
+            onClick={this.filterItems}
             type="checkbox"
             id="size_medium"
             value="medium"
           />
           <label htmlFor="size_medium">Medium</label>
           <input
-            onClick={this.filterBySize}
+            onClick={this.filterItems}
             type="checkbox"
             id="size_large"
             value="large"
