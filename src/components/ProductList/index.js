@@ -116,13 +116,13 @@ class ProductList extends Component {
           <label htmlFor="size_large">Large</label>
         </div>
 
-        <div className="col row product-item">
+        <div className="col product-item">
           {map(products, (product)=> (
             <Link
               key={product.id}
               to={`/products/${product.type}/${product.id}`}
             >
-              <div className="col s12 col m4 col l3">
+              <div className="col s12 col m6 col l3">
                 <div className="product-image">
                   <img alt={product.name} src={product.img} />
                 </div>
