@@ -1,4 +1,8 @@
-import React, { PropTypes } from 'react';
+// Dependencies
+import React from 'react';
+import PropTypes from 'prop-types';
+
+// Internals
 import '../index.css';
 
 const TextArea = (props) => (

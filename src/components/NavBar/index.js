@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom'
 import './index.css';
 
@@ -10,7 +10,7 @@ const NavBar = (props) => (
         <ul id="nav-mobile" className="right">
           <li><NavLink activeClassName="selected" to="/about">About</NavLink></li>
           <li><NavLink activeClassName="selected" to="/contact">Contact</NavLink></li>
-          <li><img src="../../assets/images/shopping-bag-white.png" /></li>
+          <li><img src="../../assets/images/shopping-bag-white.png" alt="cart icon"/></li>
         </ul>
       </div>
    </nav>

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import Header from '../Header/index.js';
-import ProductList from '../ProductList/index.js';
+import ProductList from '../../containers/ProductList/index.js';
+import { connect } from 'react-redux';
+import {
+  filterProductsAction
+} from '../../actions';
 
 import './index.css';
 
@@ -20,4 +24,16 @@ class App extends Component {
  }
 }
 
-export default App;
+const mapStateToProps = ({ app }) => {
+  return {
+    products: app.products
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    filterProducts: (event) => dispatch(filterProductsAction(event.target.value)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

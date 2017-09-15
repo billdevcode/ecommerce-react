@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import filter from 'lodash/filter';
 import map from 'lodash/map';
+import PropTypes from 'prop-types';
 // Externals
 import PRODUCTS from '../../assets/data/products.js';
 import '../../globalStyles.css'
@@ -141,5 +142,9 @@ class ProductList extends Component {
    );
  }
 }
+
+ProductList.propTypes = {
+  products: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+};
 
 export default ProductList

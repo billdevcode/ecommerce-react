@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Field from '../Contact/components/Field.js';
-import { NavLink } from 'react-router-dom'
 import './index.css';
 
 class Footer extends Component {
@@ -17,7 +16,7 @@ class Footer extends Component {
   updateField(field, value) {
     this.setState({ [field]: value });
   }
-  
+
   render() {
     return (
       <footer className="page-footer black">

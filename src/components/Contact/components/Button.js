@@ -1,4 +1,8 @@
-import React, { Component, PropTypes } from 'react';
+// Dependencies
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+// Internals
 import '../index.css';
 
 class Button extends Component {
