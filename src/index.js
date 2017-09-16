@@ -4,23 +4,29 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux';
 import { createStore, combineReducers} from 'redux';
+
+// Import create-react-app service worker (houses webpack, babel, etc. config)
 import registerServiceWorker from './registerServiceWorker';
 
-//Components
+// Components
 import App from './components/App';
 import BaseLayout from './components/BaseLayout';
-import About from './containers/About';
+import About from './components/About';
 import NavBar from './components/NavBar';
-import Contact from './containers/Contact';
+import Cart from './containers/Cart';
+import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ShowProduct from './containers/ShowProduct';
+
+// Inject global styles
 import './globalStyles.css';
 
-import appReducer from './reducer.js'
-
+// Import reducers and create shape of store
+import cartReducer from './containers/Cart/reducer'
 const rootReducer = combineReducers({
-  app: appReducer,
+  cart: cartReducer,
 });
+
 
 ReactDOM.render((
   <Provider store={createStore(rootReducer)}>
@@ -29,6 +35,7 @@ ReactDOM.render((
         <NavBar>
           <Switch>
             <Route path="/contact" component={Contact}/>
+            <Route path="/cart" component={Cart}/>
             <Route path="/about" component={About}/>
             <Route exact path="/products/:type/:id" component={ShowProduct}/>
             <Route path="/" component={App}/>
@@ -38,6 +45,5 @@ ReactDOM.render((
       </BaseLayout>
     </BrowserRouter>
   </Provider>
-  ),
-  document.getElementById('root'));
+), document.getElementById('root'));
 registerServiceWorker();

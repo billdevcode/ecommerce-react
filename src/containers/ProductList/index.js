@@ -7,20 +7,18 @@ import isEmpty from 'lodash/isEmpty';
 import map from 'lodash/map';
 import PropTypes from 'prop-types';
 // Externals
+import PRODUCTS from '../../assets/data/products';
 import '../../globalStyles.css'
 // Internals
 import Options from './components/Options';
-import './index.css';
+import './styles.css';
+
+const DRESSES = filter(PRODUCTS, ['type', 'dress']);
+const TOPS = filter(PRODUCTS, ['type', 'top']);
+const BOTTOMS = filter(PRODUCTS, ['type', 'bottom']);
 
 
 class ProductList extends Component {
-  static propTypes = {
-    products: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
-    dresses: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
-    tops: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
-    bottoms: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
-  };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -40,20 +38,19 @@ class ProductList extends Component {
 
   filterProducts = () => {
     const { showBottoms, showDresses, showTops } = this.state;
-    const { bottoms, dresses, tops, products: allProducts } = this.props;
     let productsByCategory = [];
 
     if (showBottoms) {
-      productsByCategory = productsByCategory.concat(bottoms);
+      productsByCategory = productsByCategory.concat(BOTTOMS);
     }
     if (showDresses) {
-      productsByCategory = productsByCategory.concat(dresses);
+      productsByCategory = productsByCategory.concat(DRESSES);
     }
     if (showTops) {
-      productsByCategory = productsByCategory.concat(tops);
+      productsByCategory = productsByCategory.concat(TOPS);
     }
     if (isEmpty(productsByCategory)) {
-      productsByCategory = allProducts;
+      productsByCategory = PRODUCTS;
     }
 
     return this.filterBySize(productsByCategory);
@@ -64,15 +61,18 @@ class ProductList extends Component {
     let productsBySize = [];
 
     if (showSmall) {
-      productsBySize = productsBySize.concat(filter(productsByCategory, ['size', 'small']));
+      const smallProductsByCategory = filter(productsByCategory, ['size', 'small']);
+      productsBySize = productsBySize.concat(smallProductsByCategory);
     }
     if (showMedium) {
-      productsBySize = productsBySize.concat(filter(productsByCategory, ['size', 'medium']));
+      const mediumProductsByCategory = filter(productsByCategory, ['size', 'medium']);
+      productsBySize = productsBySize.concat(mediumProductsByCategory);
     }
     if (showLarge) {
-      productsBySize = productsBySize.concat(filter(productsByCategory, ['size', 'large']));
+      const largeProductsByCategory = filter(productsByCategory, ['size', 'large']);
+      productsBySize = productsBySize.concat(largeProductsByCategory);
     }
-    if (isEmpty(productsBySize)) {
+    if (!showSmall && !showMedium && !showLarge) {
       productsBySize = productsByCategory;
     }
 
@@ -80,14 +80,16 @@ class ProductList extends Component {
   }
 
   render() {
+    const { filterProducts, state, toggleFilter } = this;
+
     return (
       <div className="row">
         <Options
-          toggleFilter={this.toggleFilter}
-          options={this.state}
+          toggleFilter={toggleFilter}
+          options={state}
         />
         <div className="col product-item">
-          {map(this.filterProducts(), (product)=> (
+          {map(filterProducts(), (product)=> (
             <Link
               key={product.id}
               to={`/products/${product.type}/${product.id}`}
@@ -112,13 +114,4 @@ class ProductList extends Component {
  }
 }
 
-const mapStateToProps = ({ app }) => {
-  return {
-    products: app.products,
-    dresses: app.dresses,
-    tops: app.tops,
-    bottoms: app.bottoms,
-  };
-}
-
-export default connect(mapStateToProps, null)(ProductList);
+export default ProductList;

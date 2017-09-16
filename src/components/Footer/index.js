@@ -1,6 +1,10 @@
+// Dependencies
 import React, { Component } from 'react';
-import Field from '../../containers/Contact/components/Field.js';
-import './index.css';
+// Externals
+import Field from '../Field';
+// Internals
+import './styles.css';
+
 
 class Footer extends Component {
   constructor(props) {
@@ -10,10 +14,9 @@ class Footer extends Component {
       email: '',
       message: '',
     };
-    this.updateField = this.updateField.bind(this);
   }
 
-  updateField(field, value) {
+  updateField = (field, value) => {
     this.setState({ [field]: value });
   }
 

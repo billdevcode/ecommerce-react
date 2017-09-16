@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Field from './Field';
-import Button from './Button';
-import TextArea from './TextArea';
+import Field from '../../Field';
+import Button from '../../Button';
+import Textarea from '../../Textarea';
 
 class ContactForm extends Component {
   constructor(props) {
@@ -19,6 +19,13 @@ class ContactForm extends Component {
   }
 
   render() {
+    const { name, email, message } = this.state;
+    const href = `
+      mailto:sandra.adamshallie@gmail.com
+      ?subject=You got mail from ${name}
+      &body=${message} from ${email}
+    `;
+
     return (
       <div className="contact-form row">
         <div className="col s12 m8 offset-m2">
@@ -27,7 +34,7 @@ class ContactForm extends Component {
             label="Name"
             placeholder="Name"
             onChange={(event) => this.updateField('name', event.target.value)}
-            value={this.state.name}
+            value={name}
           />
 
           {/* Email field */}
@@ -35,20 +42,20 @@ class ContactForm extends Component {
             label="Email"
             placeholder="Email"
             onChange={(event) => this.updateField('email', event.target.value)}
-            value={this.state.email}
+            value={email}
           />
 
           {/* Message textarea */}
-          <TextArea
+          <Textarea
             label="Message"
             placeholder="Message"
             onChange={(event) => this.updateField('message', event.target.value)}
-            value={this.state.message}
-            textarea={true}
+            value={message}
           />
 
           {/* Submit button */}
           <Button
+            href={href}
             email="sandra.adamshallie@gmail.com"
             formValues={this.state}
           />
