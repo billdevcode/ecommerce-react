@@ -22,7 +22,6 @@ class Footer extends Component {
       <footer className="page-footer black">
         <div className="container">
           <div className="row">
-
             <div className="col l6 s12">
               <h5 className="white-text">React E-Commerce App</h5>
               <p className="grey-text text-lighten-4">This application was built with the best practices of React in mind. This project will be advanced through the implementation of Redux and the use of the API of Amazon.</p>
@@ -30,29 +29,27 @@ class Footer extends Component {
 
             <div className="col l4 offset-l2 s12 center">
               <h5>Stay Updated</h5>
+              <div className="col s12 input-field">
+                <Field
+                  label="Name"
+                  placeholder="Name"
+                  onChange={(event) => this.updateField('name', event.target.value)}
+                  value={this.state.name}
+                />
+              </div>
 
-              <form action="#" method="post" className="validate" target="_blank" novalidate>
-                <div className="col s12 input-field">
-                  <Field
-                    placeHolder="Name"
-                    onChange={(event) => this.updateField('name', event.target.value)}
-                    value={this.state.name}
-                  />
-                </div>
+              <div className="col s12 input-field">
+                <Field
+                  label="Email"
+                  placeholder="Email"
+                  onChange={(event) => this.updateField('email', event.target.value)}
+                  value={this.state.email}
+                />
+              </div>
 
-                <div className="col s12 input-field">
-                  <Field
-                    placeHolder="Email"
-                    onChange={(event) => this.updateField('email', event.target.value)}
-                    value={this.state.email}
-                  />
-                </div>
-
-                <div className="clear">
-                  <input type="submit" className="button Button" />
-                </div>
-              </form>
-
+              <div className="clear">
+                <input type="submit" className="button Button" />
+              </div>
             </div>
           </div>
         </div>
