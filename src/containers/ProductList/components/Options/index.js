@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-const Options = ({ addFilter, options }) => {
+const Options = ({ toggleFilter, options }) => {
   const { showBottoms, showDresses, showLarge, showMedium, showSmall, showTops } = options;
 
   return (
@@ -12,28 +12,25 @@ const Options = ({ addFilter, options }) => {
         <p>Pick one category</p>
         <input
           checked={showDresses}
-          onClick={addFilter}
-          type="checkbox"
-          value="dresses"
           id="dresses-checkbox"
+          onChange={() => toggleFilter('showDresses')}
+          type="checkbox"
         />
         <label htmlFor="dresses-checkbox">Dresses</label>
 
         <input
           checked={showTops}
-          onClick={addFilter}
-          type="checkbox"
-          value="tops"
           id="tops-checkbox"
+          onChange={() => toggleFilter('showTops')}
+          type="checkbox"
         />
         <label htmlFor="tops-checkbox">Tops</label>
 
         <input
           checked={showBottoms}
-          onClick={addFilter}
-          type="checkbox"
-          value="bottoms"
           id="bottoms-checkbox"
+          onChange={() => toggleFilter('showBottoms')}
+          type="checkbox"
         />
         <label htmlFor="bottoms-checkbox">Bottoms</label>
       </div>
@@ -41,28 +38,25 @@ const Options = ({ addFilter, options }) => {
         <p>Pick one size</p>
         <input
           checked={showSmall}
-          onClick={addFilter}
-          type="checkbox"
-          value="small"
           id="small-checkbox"
+          onChange={() => toggleFilter('showSmall')}
+          type="checkbox"
         />
         <label htmlFor="small-checkbox">Small</label>
 
         <input
           checked={showMedium}
-          onClick={addFilter}
-          type="checkbox"
-          value="medium"
           id="medium-checkbox"
+          onChange={() => toggleFilter('showMedium')}
+          type="checkbox"
         />
         <label htmlFor="medium-checkbox">Medium</label>
 
         <input
           checked={showLarge}
-          onClick={addFilter}
-          type="checkbox"
-          value="large"
           id="large-checkbox"
+          onChange={() => toggleFilter('showLarge')}
+          type="checkbox"
         />
         <label htmlFor="large-checkbox">Large</label>
       </div>
@@ -71,7 +65,7 @@ const Options = ({ addFilter, options }) => {
 };
 
 Options.propTypes = {
-  addFilter: PropTypes.func.isRequired,
+  toggleFilter: PropTypes.func.isRequired,
   options: PropTypes.shape({
     showBottoms: PropTypes.bool.isRequired,
     showDresses: PropTypes.bool.isRequired,

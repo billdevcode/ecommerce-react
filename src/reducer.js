@@ -6,9 +6,6 @@ const initialState = {
   dresses: filter(PRODUCTS, ['type', 'dress']),
   tops: filter(PRODUCTS, ['type', 'top']),
   bottoms: filter(PRODUCTS, ['type', 'bottom']),
-  small: filter(PRODUCTS, ['size', 'small']),
-  medium: filter(PRODUCTS, ['size', 'medium']),
-  large: filter(PRODUCTS, ['size', 'large']),
 };
 
 const appReducer = (state = initialState, action) => {
