@@ -38,9 +38,10 @@ class ProductList extends Component {
     this.setState({ [key]: toggledValue });
   }
 
-  filterProducts = (productsByCategory = []) => {
+  filterProducts = () => {
     const { showBottoms, showDresses, showTops } = this.state;
     const { bottoms, dresses, tops, products: allProducts } = this.props;
+    let productsByCategory = [];
 
     if (showBottoms) {
       productsByCategory = productsByCategory.concat(bottoms);
@@ -55,7 +56,7 @@ class ProductList extends Component {
       productsByCategory = allProducts;
     }
 
-    return filterBySize(productsByCategory);
+    return this.filterBySize(productsByCategory);
   }
 
   filterBySize = (productsByCategory) => {

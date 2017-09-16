@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Field from '../Contact/components/Field.js';
+import Field from '../../containers/Contact/components/Field.js';
 import './index.css';
 
 class Footer extends Component {

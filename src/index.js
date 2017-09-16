@@ -9,11 +9,11 @@ import registerServiceWorker from './registerServiceWorker';
 //Components
 import App from './components/App';
 import BaseLayout from './components/BaseLayout';
-import About from './components/About';
+import About from './containers/About';
 import NavBar from './components/NavBar';
-import Contact from './components/Contact';
+import Contact from './containers/Contact';
 import Footer from './components/Footer';
-import ShowProduct from './components/ShowProduct';
+import ShowProduct from './containers/ShowProduct';
 import './globalStyles.css';
 
 import appReducer from './reducer.js'

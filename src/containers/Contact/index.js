@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ContactForm from './components/ContactForm';
-import SocialMediaIcons from '../SocialMediaIcons';
+import SocialMediaIcons from '../../components/SocialMediaIcons';
 import './index.css'
 
 class Contact extends Component {

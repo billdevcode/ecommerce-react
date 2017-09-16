@@ -1,5 +1,8 @@
+// Dependencies
 import React, { Component } from 'react';
+// Internals
 import './index.css';
+
 
 class About extends Component {
   render() {
@@ -16,7 +19,6 @@ class About extends Component {
         <p>Nam dictum pharetra libero. Integer aliquam dui risus, eget facilisis leo lacinia at. Duis ut luctus nibh. Sed sed ex arcu. Maecenas efficitur nisl mi, nec ultricies sem rutrum ac. Nulla commodo pulvinar orci. Suspendisse potenti. Maecenas aliquam eros rutrum, pretium libero id, rhoncus tellus. Sed vitae ex vitae nulla commodo porttitor. Duis nisl turpis, lacinia ut leo et, mattis posuere elit.</p>
 
         <p>Vivamus ut magna eget mauris congue sodales ac non eros. Quisque ultricies tellus lorem, feugiat sollicitudin felis consectetur a. Sed sodales diam tortor, nec elementum leo dictum ut. Aliquam vitae ante a lectus maximus dictum. Nullam fringilla sapien a blandit mattis. Vestibulum pharetra dignissim magna et mollis. Cras semper augue porttitor rhoncus ultrices. Praesent a felis hendrerit, posuere nibh id, vestibulum leo. In eget velit eros. Donec elementum sapien felis, sed ultricies quam ultrices eu. Donec pharetra nec risus id luctus. Suspendisse volutpat aliquet eros, a ultrices massa lobortis id.</p>
-
       </div>
     );
   }
