@@ -1,17 +1,17 @@
 // Dependencies
 import React from 'react';
 import PropTypes from 'prop-types';
-
 // Internals
 import '../index.css';
 
-const Field = (props) => (
+
+const Field = ({ label, onChange, placeholder, value }) => (
   <div>
-    <label>{props.label}</label>
+    <label>{label}</label>
     <input
-      onChange={props.onChange}
-      value={props.value}
-      placeholder={props.placeHolder}
+      onChange={onChange}
+      value={value}
+      placeholder={placeholder}
     />
   </div>
 );
@@ -19,6 +19,7 @@ const Field = (props) => (
 Field.propTypes = {
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
 };
 

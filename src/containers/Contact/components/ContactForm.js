@@ -24,21 +24,24 @@ class ContactForm extends Component {
         <div className="col s12 m8 offset-m2">
           {/* Name field */}
           <Field
-            placeHolder="Name"
+            label="Name"
+            placeholder="Name"
             onChange={(event) => this.updateField('name', event.target.value)}
             value={this.state.name}
           />
 
           {/* Email field */}
           <Field
-            placeHolder="Email"
+            label="Email"
+            placeholder="Email"
             onChange={(event) => this.updateField('email', event.target.value)}
             value={this.state.email}
           />
 
           {/* Message textarea */}
           <TextArea
-            placeHolder="Message"
+            label="Message"
+            placeholder="Message"
             onChange={(event) => this.updateField('message', event.target.value)}
             value={this.state.message}
             textarea={true}
