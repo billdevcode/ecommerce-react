@@ -1,0 +1,20 @@
+.cart-sidebar {
+  border-left: 1px solid #000;
+}
+
+.cart-products {
+  overflow: scroll;
+}
+
+
+.Cart h1 {
+  font-size: 35px;
+}
+
+.Cart h2 {
+  font-size: 25px;
+}
+
+.Cart h4 {
+  font-size: 16px;
+}
