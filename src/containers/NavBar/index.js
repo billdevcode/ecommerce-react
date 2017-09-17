@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
 import './index.css';
+import { connect } from 'react-redux';
 
 const NavBar = (props) => (
   <div>
@@ -10,14 +11,20 @@ const NavBar = (props) => (
         <ul id="nav-mobile" className="right">
           <li><NavLink activeClassName="selected" to="/about">About</NavLink></li>
           <li><NavLink activeClassName="selected" to="/contact">Contact</NavLink></li>
-          <li><img src="../../assets/images/shopping-bag-white.png" alt="cart icon"/></li>
+          <li><span className="cart-items">{props.cartProducts.length}</span></li>
         </ul>
       </div>
    </nav>
    {props.children}
  </div>
-
-
 );
 
-export default NavBar;
+const mapStateToProps = (state) => {
+  return {
+    cartProducts: state.cart.cartProducts
+  }
+};
+
+
+
+export default connect(mapStateToProps, null)(NavBar);
