@@ -1,0 +1,12 @@
+.nav-wrapper img {
+  height: 100px;
+  width: auto;
+}
+
+.cart-items {
+  font-size: 12px;
+  background-color: green;
+  border-radius: 100%;
+  padding: 0 7px;
+  margin-right: 20px;
+}

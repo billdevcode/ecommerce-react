@@ -12,7 +12,7 @@ import registerServiceWorker from './registerServiceWorker';
 import App from './components/App';
 import BaseLayout from './components/BaseLayout';
 import About from './components/About';
-import NavBar from './components/NavBar';
+import NavBar from './containers/NavBar';
 import Cart from './containers/Cart';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
