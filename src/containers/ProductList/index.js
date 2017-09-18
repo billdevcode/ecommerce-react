@@ -1,11 +1,9 @@
 // Dependencies
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
 import filter from 'lodash/filter';
 import isEmpty from 'lodash/isEmpty';
 import map from 'lodash/map';
-import PropTypes from 'prop-types';
 // Externals
 import PRODUCTS from '../../assets/data/products';
 import '../../globalStyles.css'

@@ -1,5 +1,5 @@
 // Dependencies
-import React, { Component } from 'react';
+import React from 'react';
 // Externals
 import Header from '../Header/index.js';
 import ProductList from '../../containers/ProductList/index.js';

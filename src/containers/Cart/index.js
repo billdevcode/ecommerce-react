@@ -24,6 +24,15 @@ class Cart extends Component {
     }, 0);
   }
 
+  computeQuantity = (product) => {
+    let quantity = {};
+    const { cartProducts } = this.props;
+
+    return cartProducts.map((product) => {
+      return quantity[product] = (quantity[product] || 0) + 1;
+    });
+  }
+
   render () {
     return (
       <div className='Cart row'>
@@ -50,10 +59,22 @@ class Cart extends Component {
                 <div className="price">
                   <h5 id="cart-product-price">${product.price}</h5>
                 </div>
+                <p>Quantity: {this.computeQuantity(product)} </p>
                 <button
                   className="button cart-button"
                   type="button"
-                  onClick={this.props.removeProductFromCart}
+                  onClick={() => {
+                    const cart = localStorage.getItem('cart');
+                    if (!cart) {
+                      localStorage.setItem('cart', JSON.stringify({ products: [] }));
+                    }
+                    const { products } = JSON.parse(localStorage.getItem('cart'));
+
+                    products.filter(({ id }) => id !== product)
+                    localStorage.setItem('cart', JSON.stringify({ products }));
+                    console.log(localStorage.getItem('cart'))
+                    this.props.removeProductFromCart(product);
+                  }}
                 >
                   Remove Item
                 </button>
@@ -89,4 +110,4 @@ const mapStateToProps = (state) => {
   }
 };
 
-export default connect(mapStateToProps, null)(Cart);
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);
