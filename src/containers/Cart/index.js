@@ -6,6 +6,10 @@ import map from 'lodash/map';
 import styles from './styles.css';
 import { Link } from 'react-router-dom';
 
+import {
+  removeProductFromCartAction
+} from '../Cart/actions';
+
 
 class Cart extends Component {
   computeTotalAmount = () => {
@@ -25,7 +29,7 @@ class Cart extends Component {
       <div className='Cart row'>
       <Link to="/">
         <button
-          className="button cart-button"
+          className="button"
           type="button"
         >
           Back to All Products
@@ -43,19 +47,40 @@ class Cart extends Component {
                   <h2 id="cart-product-name">{product.name}</h2>
                   <h4 id="cart-product-description">{product.description}</h4>
                 </div>
-                <div className="price-add">
+                <div className="price">
                   <h5 id="cart-product-price">${product.price}</h5>
                 </div>
+                <button
+                  className="button cart-button"
+                  type="button"
+                  onClick={this.props.removeProductFromCart}
+                >
+                  Remove Item
+                </button>
               </div>
             </div>
           ))}
         </div>
         <div className="cart-sidebar col s12 m4">
-          Total: ${this.computeTotalAmount()}USD
+          <p>Total: ${this.computeTotalAmount()}USD</p>
+          <Link to="/checkout">
+            <button
+              className="button cart-button"
+              type="button"
+            >
+              Checkout
+            </button>
+          </Link>
         </div>
       </div>
     )
   }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    removeProductFromCart: (product) => dispatch(removeProductFromCartAction(product)),
+  };
 }
 
 const mapStateToProps = (state) => {

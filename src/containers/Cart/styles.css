@@ -6,15 +6,27 @@
   overflow: scroll;
 }
 
+.Cart {
+  margin-top: 40px;
+}
+
+.Cart img {
+  margin-top: 20px;
+  height: 250px;
+}
 
 .Cart h1 {
   font-size: 35px;
 }
 
 .Cart h2 {
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .Cart h4 {
-  font-size: 16px;
+  font-size: 14px;
+}
+
+.Cart h5 {
+  font-size: 14px;
 }
