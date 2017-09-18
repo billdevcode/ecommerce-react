@@ -24,13 +24,15 @@ class Cart extends Component {
     }, 0);
   }
 
-  computeQuantity = (product) => {
-    let quantity = {};
-    const { cartProducts } = this.props;
+  getCount = (products) => {
+    let counter = {}
 
-    return cartProducts.map((product) => {
-      return quantity[product] = (quantity[product] || 0) + 1;
-    });
+    products.forEach((obj) => {
+      let key = JSON.stringify(obj)
+      counter[key] = (counter[key] || 0) + 1
+    })
+
+    return counter;
   }
 
   render () {
@@ -54,25 +56,21 @@ class Cart extends Component {
                 </div>
                 <div className="cart-product-details">
                   <h2 id="cart-product-name">{product.name}</h2>
-                  <h4 id="cart-product-description">{product.description}</h4>
+                  <h4 id="cart-product-description">{product.description}. Size {product.size}.</h4>
                 </div>
                 <div className="price">
                   <h5 id="cart-product-price">${product.price}</h5>
                 </div>
-                <p>Quantity: {this.computeQuantity(product)} </p>
                 <button
                   className="button cart-button"
                   type="button"
                   onClick={() => {
                     const cart = localStorage.getItem('cart');
-                    if (!cart) {
-                      localStorage.setItem('cart', JSON.stringify({ products: [] }));
-                    }
                     const { products } = JSON.parse(localStorage.getItem('cart'));
+                    products.map((product) => {
+                      localStorage.removeItem(product);
+                    })
 
-                    products.filter(({ id }) => id !== product)
-                    localStorage.setItem('cart', JSON.stringify({ products }));
-                    console.log(localStorage.getItem('cart'))
                     this.props.removeProductFromCart(product);
                   }}
                 >

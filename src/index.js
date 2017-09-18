@@ -14,6 +14,7 @@ import BaseLayout from './components/BaseLayout';
 import About from './components/About';
 import NavBar from './containers/NavBar';
 import Cart from './containers/Cart';
+import Checkout from './containers/Checkout';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ShowProduct from './containers/ShowProduct';
@@ -35,9 +36,10 @@ ReactDOM.render((
         <NavBar>
           <Switch>
             <Route path="/contact" component={Contact}/>
+            <Route path="/checkout" component={Checkout}/>
             <Route path="/cart" component={Cart}/>
             <Route path="/about" component={About}/>
-            <Route exact path="/products/:type/:id" component={ShowProduct}/>
+            <Route path="/products/:type/:id" component={ShowProduct}/>
             <Route path="/" component={App}/>
           </Switch>
         </NavBar>
