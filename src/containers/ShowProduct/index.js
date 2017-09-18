@@ -33,7 +33,17 @@ const ShowProduct = ({ match, addProductToCart }) => {
           <Link to="/cart">
             <button
               className="button cart-button"
-              onClick={() => addProductToCart(product)}
+              onClick={() => {
+                const cart = localStorage.getItem('cart');
+                if (!cart) {
+                  localStorage.setItem('cart', JSON.stringify({ products: [] }));
+                }
+                const { products } = JSON.parse(localStorage.getItem('cart'));
+                products.push(product);
+                localStorage.setItem('cart', JSON.stringify({ products }));
+                console.log(localStorage.getItem('cart'))
+                addProductToCart(product);
+              }}
               type="button"
             >
               Add to cart

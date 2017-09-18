@@ -1,5 +1,6 @@
 import {
   ADD_PRODUCT_TO_CART,
+  ADD_PRODUCTS_TO_CART,
 } from './constants';
 
 const initialState = {
@@ -12,6 +13,12 @@ const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         cartProducts: state.cartProducts.concat([action.product]),
+      };
+    }
+    case ADD_PRODUCTS_TO_CART: {
+      return {
+        ...state,
+        cartProducts: state.cartProducts.concat(action.products),
       };
     }
     default: {

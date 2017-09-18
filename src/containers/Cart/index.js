@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import isEmpty from 'lodash/isEmpty';
 import map from 'lodash/map';
 import styles from './styles.css';
+import { Link } from 'react-router-dom';
 
 
 class Cart extends Component {
@@ -22,7 +23,15 @@ class Cart extends Component {
   render () {
     return (
       <div className='Cart row'>
-        <div className="cart-products col s12 m8">
+      <Link to="/">
+        <button
+          className="button cart-button"
+          type="button"
+        >
+          Back to All Products
+        </button>
+      </Link>
+      <div className="cart-products col s12 m8">
         <h1 className="center">Your Cart</h1>
           {map(this.props.cartProducts, (product) => (
             <div key={product.id}>
