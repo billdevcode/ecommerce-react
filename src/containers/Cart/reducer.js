@@ -19,7 +19,7 @@ const cartReducer = (state = initialState, action) => {
     case REMOVE_PRODUCT_FROM_CART: {
       return {
         ...state,
-        cartProducts: state.cartProducts.filter(({ id }) => id !== action.product),
+        cartProducts: state.cartProducts.filter(({ id }) => id !== action.product.id),
       }
     }
     case ADD_PRODUCTS_TO_CART: {
