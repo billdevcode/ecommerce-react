@@ -12,7 +12,7 @@ const NavBar = (props) => (
         <ul id="nav-mobile" className="right">
           <li><Link to="/about">About</Link></li>
           <li><Link to="/contact">Contact</Link></li>
-          <li><span className="cart-items">{props.cartProducts.length}</span></li>
+          <li><Link to="/cart"><span className="cart-items">{props.cartProducts.length}</span></Link></li>
         </ul>
       </div>
    </nav>
