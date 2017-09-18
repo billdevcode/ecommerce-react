@@ -1,9 +1,12 @@
 .cart-sidebar {
   border-left: 1px solid #000;
+  height: 80vh;
 }
 
 .cart-products {
   overflow: scroll;
+  max-height: 80vh;
+  border-bottom: 1px #000 solid;
 }
 
 .Cart {
