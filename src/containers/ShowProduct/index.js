@@ -39,9 +39,20 @@ const ShowProduct = ({ match, addProductToCart }) => {
                   localStorage.setItem('cart', JSON.stringify({ products: [] }));
                 }
                 const { products } = JSON.parse(localStorage.getItem('cart'));
+
+                // Do we have the product in our cart already?
+                const productInCart = find(products, ['id', product.id]);
+                if (productInCart) {
+                  // Just increment the quantity then.
+                  productInCart.quantity += 1;
+                  console.log('product in cart, new products', products);
+                  localStorage.setItem('cart', JSON.stringify({ products }));
+                  return;
+                }
+
+                product.quantity = 1;
                 products.push(product);
                 localStorage.setItem('cart', JSON.stringify({ products }));
-                console.log(localStorage.getItem('cart'))
                 addProductToCart(product);
               }}
               type="button"

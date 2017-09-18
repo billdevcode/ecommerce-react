@@ -6,7 +6,6 @@
 .cart-products {
   overflow: scroll;
   max-height: 80vh;
-  border-bottom: 1px #000 solid;
 }
 
 .Cart {
@@ -32,4 +31,16 @@
 
 .Cart h5 {
   font-size: 14px;
+}
+
+.cart-sidebar h1 {
+  font-size: 23px;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.back-button {
+  background-color: #FFF;
+  color: #000;
+  border: 1px solid #000;
 }

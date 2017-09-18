@@ -8,7 +8,7 @@ const NavBar = (props) => (
   <div>
     <nav className="black">
       <div className="nav-wrapper">
-        <Link className="brand-logo" exact to="/">Dressy</Link>
+        <Link className="brand-logo" to="/">Dressy</Link>
         <ul id="nav-mobile" className="right">
           <li><Link to="/about">About</Link></li>
           <li><Link to="/contact">Contact</Link></li>
