@@ -32,14 +32,15 @@ ReactDOM.render((
   <Provider store={createStore(rootReducer)}>
     <BrowserRouter>
       <BaseLayout>
-        <NavBar/>
-        <Switch>
-          <Route exact path="/" component={App}/>
-          <Route path="/contact" component={Contact}/>
-          <Route path="/cart" component={Cart}/>
-          <Route path="/about" component={About}/>
-          <Route path="/products/:type/:id" component={ShowProduct}/>
-        </Switch>
+        <NavBar>
+          <Switch>
+            <Route path="/contact" component={Contact}/>
+            <Route path="/cart" component={Cart}/>
+            <Route path="/about" component={About}/>
+            <Route exact path="/products/:type/:id" component={ShowProduct}/>
+            <Route path="/" component={App}/>
+          </Switch>
+        </NavBar>
         <Footer />
       </BaseLayout>
     </BrowserRouter>

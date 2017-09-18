@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { addProductsToCartAction } from '../../containers/Cart/actions'
 
 import './index.css';
@@ -29,4 +30,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 }
 
-export default connect(null, mapDispatchToProps)(BaseLayout);
+export default withRouter(connect(null, mapDispatchToProps)(BaseLayout));

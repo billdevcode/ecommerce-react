@@ -1,16 +1,17 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
+import {Link } from 'react-router-dom'
 import './index.css';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const NavBar = (props) => (
   <div>
     <nav className="black">
       <div className="nav-wrapper">
-        <NavLink className="brand-logo" exact to="/">Dressy</NavLink>
+        <Link className="brand-logo" exact to="/">Dressy</Link>
         <ul id="nav-mobile" className="right">
-          <li><NavLink activeClassName="selected" to="/about">About</NavLink></li>
-          <li><NavLink activeClassName="selected" to="/contact">Contact</NavLink></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
           <li><span className="cart-items">{props.cartProducts.length}</span></li>
         </ul>
       </div>
@@ -19,12 +20,11 @@ const NavBar = (props) => (
  </div>
 );
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     cartProducts: state.cart.cartProducts
   }
 };
 
 
-
-export default connect(mapStateToProps, null)(NavBar);
+export default withRouter(connect(mapStateToProps, null)(NavBar));
