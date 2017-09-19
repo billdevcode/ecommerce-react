@@ -26,24 +26,22 @@ class Footer extends Component {
         <div className="container">
           <div className="row">
             <div className="col l6 s12">
-              <h5 className="white-text">React E-Commerce App</h5>
-              <p className="grey-text text-lighten-4">This application was built with the best practices of React in mind. This project will be advanced through the implementation of Redux and the use of the API of Amazon.</p>
+              <h5 className="white-text">Dressy</h5>
+              <p className="text-lighten-4">This application was built with the best practices of React and Redux in mind.</p>
             </div>
 
             <div className="col l4 offset-l2 s12 center">
               <h5>Stay Updated</h5>
-              <div className="col s12 input-field">
+              <div className="col s12">
                 <Field
-                  label="Name"
                   placeholder="Name"
                   onChange={(event) => this.updateField('name', event.target.value)}
                   value={this.state.name}
                 />
               </div>
 
-              <div className="col s12 input-field">
+              <div className="col s12">
                 <Field
-                  label="Email"
                   placeholder="Email"
                   onChange={(event) => this.updateField('email', event.target.value)}
                   value={this.state.email}
