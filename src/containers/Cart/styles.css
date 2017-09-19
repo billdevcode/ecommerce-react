@@ -33,10 +33,35 @@
   font-size: 14px;
 }
 
+.Cart a {
+  cursor: pointer;
+  color: #000;
+}
+
 .cart-sidebar h1 {
   font-size: 23px;
   margin-top: 3em;
   margin-bottom: 3em;
+}
+
+@media only screen and (max-width: 500px) {
+  .Cart {
+    text-align: center;
+  }
+
+  .cart-products {
+    margin-bottom: 1em;
+  }
+
+  .cart-sidebar {
+    height: 200px;
+    border-top: 1px solid #000;
+  }
+  .cart-sidebar h1 {
+    font-size: 23px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
 }
 
 .back-button {
