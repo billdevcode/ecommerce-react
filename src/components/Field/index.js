@@ -15,7 +15,7 @@ const Field = ({ label, onChange, placeholder, value }) => (
 );
 
 Field.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,

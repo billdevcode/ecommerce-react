@@ -6,13 +6,17 @@ import find from 'lodash/find';
 // Externals
 import PRODUCTS from '../../assets/data/products';
 import {
-  addProductToCartAction
+  getCart,
+} from '../../services/cart';
+import {
+  addProductToCartAction,
+  removeProductFromCartAction,
 } from '../Cart/actions';
-//Internals
+// Internals
 import './styles.css';
 
 
-const ShowProduct = ({ match, addProductToCart }) => {
+const ShowProduct = ({ match, addProductToCart, removeProductFromCart }) => {
   const product = find(PRODUCTS, ['id', parseInt(match.params.id, 10)]);
 
   return (
@@ -29,23 +33,20 @@ const ShowProduct = ({ match, addProductToCart }) => {
         <div className="product-bio">
           <p>{product.description}</p>
           <p>Size: {product.size}</p>
-          <p>Price: {product.price}</p>
+          <p>Price: ${product.price}</p>
           <Link to="/cart">
             <button
               className="button cart-button"
               onClick={() => {
-                const cart = localStorage.getItem('cart');
-                if (!cart) {
-                  localStorage.setItem('cart', JSON.stringify({ products: [] }));
-                }
-                const { products } = JSON.parse(localStorage.getItem('cart'));
+                const { products } = getCart();
 
                 // Do we have the product in our cart already?
-                const productInCart = find(products, ['id', product.id]);
-                if (productInCart) {
+                const localStorageProduct = find(products, ['id', product.id]);
+                if (localStorageProduct) {
                   // Just increment the quantity then.
-                  productInCart.quantity += 1;
-                  console.log('product in cart, new products', products);
+                  removeProductFromCart(localStorageProduct);
+                  localStorageProduct.quantity += 1;
+                  addProductToCart(localStorageProduct);
                   localStorage.setItem('cart', JSON.stringify({ products }));
                   return;
                 }
@@ -69,6 +70,7 @@ const ShowProduct = ({ match, addProductToCart }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     addProductToCart: (product) => dispatch(addProductToCartAction(product)),
+    removeProductFromCart: (product) => dispatch(removeProductFromCartAction(product)),
   };
 }
 

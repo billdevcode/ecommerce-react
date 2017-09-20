@@ -16,6 +16,7 @@ const cartReducer = (state = initialState, action) => {
         cartProducts: state.cartProducts.concat([action.product]),
       };
     }
+    
     case REMOVE_PRODUCT_FROM_CART: {
       return {
         ...state,

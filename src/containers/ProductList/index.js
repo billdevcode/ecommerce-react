@@ -92,7 +92,7 @@ class ProductList extends Component {
               key={product.id}
               to={`/products/${product.type}/${product.id}`}
             >
-              <div className="col s12 col m6 col l3">
+              <div className="col s12 col m6 col l4">
                 <div className="product-image">
                   <img alt={product.name} src={product.img} />
                 </div>
